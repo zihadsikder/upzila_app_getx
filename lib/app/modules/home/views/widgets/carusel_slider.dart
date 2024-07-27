@@ -64,7 +64,7 @@ class MyCarouselSlider extends StatelessWidget {
                       margin: const EdgeInsets.all(2),
                       decoration: BoxDecoration(
                           color: currentIndex.value == i
-                              ? Colors.blue
+                              ? Colors.green
                               : Colors.grey.shade400,
                           border: Border.all(
                             color: Colors.grey.shade400,

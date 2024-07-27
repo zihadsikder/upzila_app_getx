@@ -13,17 +13,19 @@ class TextButtonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      //color: Colors.white,
+
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             text,
             style: const TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.blue),
+                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.green),
           ),
           IconButton(
             onPressed: onPressed,
-            icon: const Icon(Icons.arrow_forward_ios_sharp),
+            icon:Icon(Icons.arrow_forward_ios_sharp,color: Colors.green.shade200,),
           ),
         ],
       ),

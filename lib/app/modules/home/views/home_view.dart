@@ -22,39 +22,7 @@ class HomeView extends GetView<HomeController> {
     var screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red.shade600,
-        title: const Center(
-          child: Text(
-            'KUTUBDIA',
-            style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.share_outlined,color: Colors.white,),
-            onPressed: () {
-              const appLink =
-                  'https://play.google.com/store/apps/details?id=com.kutubdia.app';
-              Share.share('Check out this awesome app: $appLink');
-              //Navigator.of(context).pop();
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.star_rate,color: Colors.white,),
-            onPressed: () {
-              _rateUs();
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.privacy_tip_outlined,color: Colors.white,),
-            onPressed: () {
-              Get.to(()=> const PrivacyScreen());
-            },
-          ),
-        ],
-      ),
+      appBar: buildAppBar,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -70,6 +38,7 @@ class HomeView extends GetView<HomeController> {
                 },
                 text: ' ভ্রমণের জন্য নির্দেশনা...',
               ),
+              const SizedBox(height: 24.0,),
               LayoutBuilder(
                 builder: (context, constraints) {
                   int crossAxisCount = screenWidth > 600 ? 6 : 3; // Adjust grid count based on screen width
@@ -119,6 +88,40 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
       ),
+    );
+  }
+
+  AppBar get buildAppBar {
+    return AppBar(
+      backgroundColor: Colors.red.shade600,
+      title: const Text(
+        'KUTUBDIA',
+        style: TextStyle(
+            fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+      ),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.share_outlined,color: Colors.white,),
+          onPressed: () {
+            const appLink =
+                'https://play.google.com/store/apps/details?id=com.kutubdia.app';
+            Share.share('Check out this awesome app: $appLink');
+            //Navigator.of(context).pop();
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.star_rate,color: Colors.white,),
+          onPressed: () {
+            _rateUs();
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.privacy_tip_outlined,color: Colors.white,),
+          onPressed: () {
+            Get.to(()=> const PrivacyScreen());
+          },
+        ),
+      ],
     );
   }
 
